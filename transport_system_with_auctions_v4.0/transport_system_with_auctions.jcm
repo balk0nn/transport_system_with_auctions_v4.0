@@ -1,0 +1,295 @@
+
+mas transport_system_with_auctions {
+
+    
+    
+	//auctioneer
+	agent auctioneer{
+		join: auction_room
+		focus: auction_room.auction_manager, auction_room.notice_board,
+		auction_room.bids_collector
+		roles: coordinator in mg
+    	beliefs: my_mission(coordinator_mission)
+	}
+	
+
+	//buses
+    agent bus1 : bus.asl {
+    	join: auction_room, bus_calculator
+    	focus: auction_room.notice_board, bus_calculator.bid_calculator,
+    	bus_calculator.path_builder, auction_room.bids_collector,
+    	bus_calculator.shortest_path_searcher
+    	beliefs: point("A"),
+    			 speed(60),
+    			 capacity(6),
+    			 weight_a(100),
+    			 weight_b(100),
+    			 weight_g(0),
+    			 benevolence(0.9),
+    			 safety(0.9),
+    			 comfort(0.9),
+    			 punctuality(0.9),
+    			 time_accuracy(0.9),
+    			 cleanliness(0.9)
+    }
+    
+    agent bus2 : bus.asl {
+    	join: auction_room, bus_calculator
+    	focus:auction_room.notice_board, bus_calculator.bid_calculator,
+    	bus_calculator.path_builder, auction_room.bids_collector,
+    	bus_calculator.shortest_path_searcher
+    	beliefs: point("C"),
+    			 speed(50),
+    			 capacity(6),
+    			 weight_a(100),
+    			 weight_b(100),
+    			 weight_g(0),
+    			 benevolence(0.9),
+    			 safety(0.9),
+    			 comfort(0.9),
+    			 punctuality(0.9),
+    			 time_accuracy(0.9),
+    			 cleanliness(0.9)
+    }
+    
+    agent bus3 : bus.asl {
+    	join: auction_room, bus_calculator
+    	focus:auction_room.notice_board, bus_calculator.bid_calculator,
+    	bus_calculator.path_builder, auction_room.bids_collector,
+    	bus_calculator.shortest_path_searcher
+    	beliefs: point("D"),
+    			 speed(55),
+    			 capacity(6),
+    			 weight_a(100),
+    			 weight_b(100),
+    			 weight_g(0),
+    			 benevolence(0.9),
+    			 safety(0.9),
+    			 comfort(0.9),
+    			 punctuality(0.9),
+    			 time_accuracy(0.9),
+    			 cleanliness(0.9)
+    }
+    
+    agent bus4 : bus.asl {
+    	join: auction_room, bus_calculator
+    	focus:auction_room.notice_board, bus_calculator.bid_calculator,
+    	bus_calculator.path_builder, auction_room.bids_collector,
+    	bus_calculator.shortest_path_searcher
+    	beliefs: point("I"),
+    			 speed(50),
+    			 capacity(6),
+    			 weight_a(100),
+    			 weight_b(100),
+    			 weight_g(0),
+    			 benevolence(0.9),
+    			 safety(0.9),
+    			 comfort(0.9),
+    			 punctuality(0.9),
+    			 time_accuracy(0.9),
+    			 cleanliness(0.9)
+    }
+
+    //passengers
+    agent passenger1 : passenger.asl {
+    	join: auction_room
+    	focus: auction_room.notice_board
+    	beliefs: price(170), 
+    			 start_point("B"),
+				 end_point("E"),
+    			 start_time("10:00"),
+    			 number(1)   			 
+    }
+    
+    agent passenger2 : passenger.asl {
+    	join: auction_room
+    	focus: auction_room.notice_board
+    	beliefs: price(150), 
+    			 start_point("A"),
+				 end_point("B"),
+    			 start_time("10:10"),
+    			 number(2)   		
+    }
+    
+    agent passenger3 : passenger.asl {
+    	join: auction_room
+    	focus: auction_room.notice_board
+    	beliefs: price(200), 
+    			 start_point("A"),
+				 end_point("E"),
+    			 start_time("10:20"),
+    			 number(3)   		
+    }
+    
+    agent passenger4 : passenger.asl {
+    	join: auction_room
+    	focus: auction_room.notice_board
+    	beliefs: price(220), 
+    			 start_point("D"),
+				 end_point("C"),
+    			 start_time("10:30"),
+    			 number(4)   		
+    }
+    
+    agent passenger5 : passenger.asl {
+    	join: auction_room
+    	focus: auction_room.notice_board
+    	beliefs: price(220), 
+    			 start_point("E"),
+				 end_point("D"),
+    			 start_time("10:40"),
+    			 number(5)   		
+    }
+    
+    agent passenger6 : passenger.asl {
+    	join: auction_room
+    	focus: auction_room.notice_board
+    	beliefs: price(270), 
+    			 start_point("I"),
+				 end_point("J"),
+    			 start_time("10:50"),
+    			 number(6)   		
+    }
+    
+    agent passenger7 : passenger.asl {
+    	join: auction_room
+    	focus: auction_room.notice_board
+    	beliefs: price(190), 
+    			 start_point("D"),
+				 end_point("G"),
+    			 start_time("11:00"),
+    			 number(7)   		
+    }
+    
+    agent passenger8 : passenger.asl {
+    	join: auction_room
+    	focus: auction_room.notice_board
+    	beliefs: price(210), 
+    			 start_point("G"),
+				 end_point("E"),
+    			 start_time("11:10"),
+    			 number(8)   		
+    }
+    
+    agent passenger9 : passenger.asl {
+    	join: auction_room
+    	focus: auction_room.notice_board
+    	beliefs: price(270), 
+    			 start_point("I"),
+				 end_point("F"),
+    			 start_time("11:20"),
+    			 number(9)   		  			 
+    }
+    
+    agent passenger10 : passenger.asl {
+    	join: auction_room
+    	focus: auction_room.notice_board
+    	beliefs: price(250), 
+    			 start_point("A"),
+				 end_point("J"),
+    			 start_time("11:30"),
+    			 number(10)   		
+    }
+    
+    agent passenger11 : passenger.asl {
+    	join: auction_room
+    	focus: auction_room.notice_board
+    	beliefs: price(180), 
+    			 start_point("C"),
+				 end_point("H"),
+    			 start_time("11:40"),
+    			 number(11)   		
+    }
+    
+    agent passenger12 : passenger.asl {
+    	join: auction_room
+    	focus: auction_room.notice_board
+    	beliefs: price(100), 
+    			 start_point("D"),
+				 end_point("F"),
+    			 start_time("11:50"),
+    			 number(12)   		
+    }
+    
+    agent passenger13 : passenger.asl {
+    	join: auction_room
+    	focus: auction_room.notice_board
+    	beliefs: price(220), 
+    			 start_point("E"),
+				 end_point("G"),
+    			 start_time("12:00"),
+    			 number(13)   		
+    }
+    
+    agent passenger14 : passenger.asl {
+    	join: auction_room
+    	focus: auction_room.notice_board
+    	beliefs: price(270), 
+    			 start_point("I"),
+				 end_point("J"),
+    			 start_time("12:10"),
+    			 number(14)   		
+    }
+    
+    agent passenger15 : passenger.asl {
+    	join: auction_room
+    	focus: auction_room.notice_board
+    	beliefs: price(190), 
+    			 start_point("C"),
+				 end_point("G"),
+    			 start_time("12:20"),
+    			 number(15)   		
+    }
+    
+    agent passenger16 : passenger.asl {
+    	join: auction_room
+    	focus: auction_room.notice_board
+    	beliefs: price(210), 
+    			 start_point("G"),
+				 end_point("E"),
+    			 start_time("12:30"),
+    			 number(16)   		
+    }
+    
+    agent passenger17 : passenger.asl {
+    	join: auction_room
+    	focus: auction_room.notice_board
+    	beliefs: price(170), 
+    			 start_point("B"),
+				 end_point("E"),
+    			 start_time("12:40"),
+    			 number(17)   		    			 
+    }
+    
+    agent passenger18 : passenger.asl {
+    	join: auction_room
+    	focus: auction_room.notice_board
+    	beliefs: price(150), 
+    			 start_point("A"),
+				 end_point("B"),
+    			 start_time("12:50"),
+    			 number(18)   		
+    }
+
+
+    workspace auction_room { 
+    	artifact auction_manager: tools_of_auctioneer.AuctionManager
+    	artifact notice_board: tools_of_auctioneer.NoticeBoard
+    	artifact bids_collector: tools_of_auctioneer.BidsCollector
+	}
+	
+	workspace bus_calculator { 
+    	artifact bid_calculator: tools_of_bus.BidCalculator
+    	artifact path_builder: tools_of_bus.PathBuilder
+    	artifact shortest_path_searcher: tools_of_bus.ShortestPathSearcher
+	}
+
+	organisation transport_company : org.xml {
+    	group mg : manager_group {
+    		responsible-for: ms
+    	}
+    	scheme ms : manager_scheme
+    }
+
+}
+
