@@ -5,7 +5,7 @@
    ������ 20, 2023 - 19:32:46
 */
 
-defaultTasks 'run'
+defaultTasks 'generateJcm', 'run'
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -13,8 +13,8 @@ apply plugin: 'eclipse'
 version '1.0'
 group   'org.jacamo'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 11
+targetCompatibility = 11
 
 repositories {
     maven { url "https://raw.github.com/jacamo-lang/mvn-repo/master" }
@@ -25,7 +25,7 @@ repositories {
 
     flatDir { dirs 'lib' }
 
-    mavenCentral()    
+    mavenCentral()
 }
 
 dependencies {
@@ -44,6 +44,22 @@ sourceSets {
             srcDir 'src/resources'
         }
     }
+}
+
+// Добавляем задачу для генерации .jcm
+task generateJcm(type: Exec) {
+    description = 'Генерация файла .jcm перед запуском'
+    group = 'build'
+
+    // рабочая директория (если нужно)
+    workingDir = projectDir
+    print(projectDir)
+
+    commandLine 'python', 'generate_jcm.py', '--count', '200'
+
+    // если python установлен как python3 (Linux/Mac)
+    // commandLine 'python3', 'generate_jcm.py'
+
 }
 
 task run (type: JavaExec, dependsOn: 'classes') {

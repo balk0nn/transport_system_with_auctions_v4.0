@@ -94,7 +94,6 @@ bus4_trust_third_party(0).
 		TOTALTB4 = TTPB4 + W7 * TIB4 + W8 * TDB4; +bus4_total_trust(TOTALTB4);
 		.print("Total trust score for bus4 is ", TOTALTB4).
 
-
 !start_waiting.
 
 +!start_waiting <- .wait(100);
@@ -231,62 +230,62 @@ bus4_trust_third_party(0).
 		{.print("Event rout_change happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(3));
 		                                             .send(auctioneer,achieve,add_penalty(30));
-		                                             -bus1_trust_direct(TDB2);
-		                                             +bus1_trust_direct(TDB2 - 0.03)};
+		                                             -bus2_trust_direct(TDB2);
+		                                             +bus2_trust_direct(TDB2 - 0.03)};
 		     if (Q >= 64 & Q < 67) 
 		{.print("Event fuel happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(3));
 		                                             .send(auctioneer,achieve,add_penalty(50));
-		                                             -bus1_trust_direct(TDB2);
-		                                             +bus1_trust_direct(TDB2 - 0.05)};
+		                                             -bus2_trust_direct(TDB2);
+		                                             +bus2_trust_direct(TDB2 - 0.05)};
 		     if (Q >= 67 & Q < 72) 
 		{.print("Event late happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(3));
 		                                             .send(auctioneer,achieve,add_penalty(30));
-		                                             -bus1_trust_direct(TDB2);
-		                                             +bus1_trust_direct(TDB2 - 0.03)};
+		                                             -bus2_trust_direct(TDB2);
+		                                             +bus2_trust_direct(TDB2 - 0.03)};
 		     if (Q >= 72 & Q < 75) 
 		{.print("Event stop happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(3));
 		                                             .send(auctioneer,achieve,add_penalty(20));
-		                                             -bus1_trust_direct(TDB2);
-		                                             +bus1_trust_direct(TDB2 - 0.02)};
+		                                             -bus2_trust_direct(TDB2);
+		                                             +bus2_trust_direct(TDB2 - 0.02)};
 		     if (Q >= 75 & Q < 77) 
 		{.print("Event rude happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(2));
 		                                             .send(auctioneer,achieve,add_penalty(20));
-		                                             -bus1_trust_direct(TDB2);
-		                                             +bus1_trust_direct(TDB2 - 0.02)};
+		                                             -bus2_trust_direct(TDB2);
+		                                             +bus2_trust_direct(TDB2 - 0.02)};
 		     if (Q >= 77 & Q < 78) 
 		{.print("Event price_change happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(2));
 		                                             .send(auctioneer,achieve,add_penalty(50));
-		                                             -bus1_trust_direct(TDB2);
-		                                             +bus1_trust_direct(TDB2 - 0.05)};
+		                                             -bus2_trust_direct(TDB2);
+		                                             +bus2_trust_direct(TDB2 - 0.05)};
 		     if (Q >= 78 & Q < 79) 
 		{.print("Event danger happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(2));
 		                                             .send(auctioneer,achieve,add_penalty(90));
-		                                             -bus1_trust_direct(TDB2);
-		                                             +bus1_trust_direct(TDB2 - 0.1)};
+		                                             -bus2_trust_direct(TDB2);
+		                                             +bus2_trust_direct(TDB2 - 0.1)};
 		     if (Q >= 79 & Q < 86) 
 		{.print("Event discomfort happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(3));
 		                                             .send(auctioneer,achieve,add_penalty(20));
-		                                             -bus1_trust_direct(TDB2);
-		                                             +bus1_trust_direct(TDB2 - 0.02)};
+		                                             -bus2_trust_direct(TDB2);
+		                                             +bus2_trust_direct(TDB2 - 0.02)};
 		     if (Q >= 86 & Q < 90) 
 		{.print("Event not_clean happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(3));
 		                                             .send(auctioneer,achieve,add_penalty(20));
-		                                             -bus1_trust_direct(TDB2);
-		                                             +bus1_trust_direct(TDB2 - 0.02)};
+		                                             -bus2_trust_direct(TDB2);
+		                                             +bus2_trust_direct(TDB2 - 0.02)};
 		     if (Q >= 90 & Q < 100) 
 		{.print("Event tips happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(5));
 		                                             .send(auctioneer,achieve,add_penalty(-50));
-		                                             -bus1_trust_direct(TDB2);
-		                                             +bus1_trust_direct(TDB2 + 0.1)};
+		                                             -bus2_trust_direct(TDB2);
+		                                             +bus2_trust_direct(TDB2 + 0.1)};
 		 -delivered(false); +delivered(true);
 		 !send_direct_trust_to_bus2.
 
@@ -299,62 +298,62 @@ bus4_trust_third_party(0).
 		{.print("Event rout_change happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(3));
 		                                             .send(auctioneer,achieve,add_penalty(30));
-		                                             -bus1_trust_direct(TDB3);
-		                                             +bus1_trust_direct(TDB3 - 0.03)};
+		                                             -bus3_trust_direct(TDB3);
+		                                             +bus3_trust_direct(TDB3 - 0.03)};
 		     if (Q >= 64 & Q < 67) 
 		{.print("Event fuel happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(3));
 		                                             .send(auctioneer,achieve,add_penalty(50));
-		                                             -bus1_trust_direct(TDB3);
-		                                             +bus1_trust_direct(TDB3 - 0.05)};
+		                                             -bus3_trust_direct(TDB3);
+		                                             +bus3_trust_direct(TDB3 - 0.05)};
 		     if (Q >= 67 & Q < 72) 
 		{.print("Event late happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(3));
 		                                             .send(auctioneer,achieve,add_penalty(30));
-		                                             -bus1_trust_direct(TDB3);
-		                                             +bus1_trust_direct(TDB3 - 0.03)};
+		                                             -bus3_trust_direct(TDB3);
+		                                             +bus3_trust_direct(TDB3 - 0.03)};
 		     if (Q >= 72 & Q < 75) 
 		{.print("Event stop happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(3));
 		                                             .send(auctioneer,achieve,add_penalty(20));
-		                                             -bus1_trust_direct(TDB3);
-		                                             +bus1_trust_direct(TDB3 - 0.02)};
+		                                             -bus3_trust_direct(TDB3);
+		                                             +bus3_trust_direct(TDB3 - 0.02)};
 		     if (Q >= 75 & Q < 77) 
 		{.print("Event rude happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(2));
 		                                             .send(auctioneer,achieve,add_penalty(20));
-		                                             -bus1_trust_direct(TDB3);
-		                                             +bus1_trust_direct(TDB3 - 0.02)};
+		                                             -bus3_trust_direct(TDB3);
+		                                             +bus3_trust_direct(TDB3 - 0.02)};
 		     if (Q >= 77 & Q < 78) 
 		{.print("Event price_change happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(2));
 		                                             .send(auctioneer,achieve,add_penalty(50));
-		                                             -bus1_trust_direct(TDB3);
-		                                             +bus1_trust_direct(TDB3 - 0.05)};
+		                                             -bus3_trust_direct(TDB3);
+		                                             +bus3_trust_direct(TDB3 - 0.05)};
 		     if (Q >= 78 & Q < 79) 
 		{.print("Event danger happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(2));
 		                                             .send(auctioneer,achieve,add_penalty(90));
-		                                             -bus1_trust_direct(TDB3);
-		                                             +bus1_trust_direct(TDB3 - 0.1)};
+		                                             -bus3_trust_direct(TDB3);
+		                                             +bus3_trust_direct(TDB3 - 0.1)};
 		     if (Q >= 79 & Q < 86) 
 		{.print("Event discomfort happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(3));
 		                                             .send(auctioneer,achieve,add_penalty(20));
-		                                             -bus1_trust_direct(TDB3);
-		                                             +bus1_trust_direct(TDB3 - 0.02)};
+		                                             -bus3_trust_direct(TDB3);
+		                                             +bus3_trust_direct(TDB3 - 0.02)};
 		     if (Q >= 86 & Q < 90) 
 		{.print("Event not_clean happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(3));
 		                                             .send(auctioneer,achieve,add_penalty(20));
-		                                             -bus1_trust_direct(TDB3);
-		                                             +bus1_trust_direct(TDB3 - 0.02)};
+		                                             -bus3_trust_direct(TDB3);
+		                                             +bus3_trust_direct(TDB3 - 0.02)};
 		     if (Q >= 90 & Q < 100) 
 		{.print("Event tips happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(5));
 		                                             .send(auctioneer,achieve,add_penalty(-50));
-		                                             -bus1_trust_direct(TDB3);
-		                                             +bus1_trust_direct(TDB3 + 0.1)};
+		                                             -bus3_trust_direct(TDB3);
+		                                             +bus3_trust_direct(TDB3 + 0.1)};
 		 -delivered(false); +delivered(true);
 
 		 !send_direct_trust_to_bus3.
@@ -368,62 +367,62 @@ bus4_trust_third_party(0).
 		{.print("Event rout_change happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(3));
 		                                             .send(auctioneer,achieve,add_penalty(30));
-		                                             -bus1_trust_direct(TDB4);
-		                                             +bus1_trust_direct(TDB4 - 0.03)};
+		                                             -bus4_trust_direct(TDB4);
+		                                             +bus4_trust_direct(TDB4 - 0.03)};
 		     if (Q >= 64 & Q < 67) 
 		{.print("Event fuel happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(3));
 		                                             .send(auctioneer,achieve,add_penalty(50));
-		                                             -bus1_trust_direct(TDB4);
-		                                             +bus1_trust_direct(TDB4 - 0.05)};
+		                                             -bus4_trust_direct(TDB4);
+		                                             +bus4_trust_direct(TDB4 - 0.05)};
 		     if (Q >= 67 & Q < 72) 
 		{.print("Event late happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(3));
 		                                             .send(auctioneer,achieve,add_penalty(30));
-		                                             -bus1_trust_direct(TDB4);
-		                                             +bus1_trust_direct(TDB4 - 0.03)};
+		                                             -bus4_trust_direct(TDB4);
+		                                             +bus4_trust_direct(TDB4 - 0.03)};
 		     if (Q >= 72 & Q < 75) 
 		{.print("Event stop happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(3));
 		                                             .send(auctioneer,achieve,add_penalty(20));
-		                                             -bus1_trust_direct(TDB4);
-		                                             +bus1_trust_direct(TDB4 - 0.02)};
+		                                             -bus4_trust_direct(TDB4);
+		                                             +bus4_trust_direct(TDB4 - 0.02)};
 		     if (Q >= 75 & Q < 77) 
 		{.print("Event rude happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(2));
 		                                             .send(auctioneer,achieve,add_penalty(20));
-		                                             -bus1_trust_direct(TDB4);
-		                                             +bus1_trust_direct(TDB4 - 0.02)};
+		                                             -bus4_trust_direct(TDB4);
+		                                             +bus4_trust_direct(TDB4 - 0.02)};
 		     if (Q >= 77 & Q < 78) 
 		{.print("Event price_change happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(2));
 		                                             .send(auctioneer,achieve,add_penalty(50));
-		                                             -bus1_trust_direct(TDB4);
-		                                             +bus1_trust_direct(TDB4 - 0.05)};
+		                                             -bus4_trust_direct(TDB4);
+		                                             +bus4_trust_direct(TDB4 - 0.05)};
 		     if (Q >= 78 & Q < 79) 
 		{.print("Event danger happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(2));
 		                                             .send(auctioneer,achieve,add_penalty(90));
-		                                             -bus1_trust_direct(TDB4);
-		                                             +bus1_trust_direct(TDB4 - 0.1)};
+		                                             -bus4_trust_direct(TDB4);
+		                                             +bus4_trust_direct(TDB4 - 0.1)};
 		     if (Q >= 79 & Q < 86) 
 		{.print("Event discomfort happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(3));
 		                                             .send(auctioneer,achieve,add_penalty(20));
-		                                             -bus1_trust_direct(TDB4);
-		                                             +bus1_trust_direct(TDB4 - 0.02)};
+		                                             -bus4_trust_direct(TDB4);
+		                                             +bus4_trust_direct(TDB4 - 0.02)};
 		     if (Q >= 86 & Q < 90) 
 		{.print("Event not_clean happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(3));
 		                                             .send(auctioneer,achieve,add_penalty(20));
-		                                             -bus1_trust_direct(TDB4);
-		                                             +bus1_trust_direct(TDB4 - 0.02)};
+		                                             -bus4_trust_direct(TDB4);
+		                                             +bus4_trust_direct(TDB4 - 0.02)};
 		     if (Q >= 90 & Q < 100) 
 		{.print("Event tips happened in the trip"); .wait(math.random(4000)); 
 		                                             .send(auctioneer,achieve,add_satisfaction(5));
 		                                             .send(auctioneer,achieve,add_penalty(-50));
-		                                             -bus1_trust_direct(TDB4);
-		                                             +bus1_trust_direct(TDB4 + 0.1)};
+		                                             -bus4_trust_direct(TDB4);
+		                                             +bus4_trust_direct(TDB4 + 0.1)};
 		 -delivered(false); +delivered(true);
 		 !send_direct_trust_to_bus4.
 
@@ -432,7 +431,7 @@ bus4_trust_third_party(0).
 +!send_direct_trust_to_bus1 : bus1_trust_direct(TDB1) <- .wait(math.random(4000)); .send(bus1,achieve,compute_trust(TDB1)).    
 +!send_direct_trust_to_bus2 : bus2_trust_direct(TDB2) <- .wait(math.random(4000)); .send(bus2,achieve,compute_trust(TDB2)). 
 +!send_direct_trust_to_bus3 : bus3_trust_direct(TDB3) <- .wait(math.random(4000)); .send(bus3,achieve,compute_trust(TDB3)). 
-+!send_direct_trust_to_bus4 : bus1_trust_direct(TDB4) <- .wait(math.random(4000)); .send(bus4,achieve,compute_trust(TDB4)). 
++!send_direct_trust_to_bus4 : bus4_trust_direct(TDB4) <- .wait(math.random(4000)); .send(bus4,achieve,compute_trust(TDB4)).
 
 +!to_know_new_trust_data <- .send(bus1, askOne, average_of_received_scores(X));
 			    .send(bus2, askOne, average_of_received_scores(X));

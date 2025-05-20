@@ -1,0 +1,77 @@
+mas transport_system_with_auctions {
+
+	//auctioneer
+	agent auctioneer {
+		join: auction_room
+		focus: auction_room.auction_manager, auction_room.notice_board,
+		       auction_room.bids_collector, auction_room.passenger_generator
+		roles: coordinator in mg
+    	beliefs: my_mission(coordinator_mission)
+	}
+
+	//buses
+    agent bus1 : bus.asl {
+    	join: auction_room, bus_calculator
+    	focus: auction_room.notice_board, bus_calculator.bid_calculator,
+    	bus_calculator.path_builder, auction_room.bids_collector,
+    	bus_calculator.shortest_path_searcher
+    	beliefs: point("A"), speed(60), capacity(15),
+    			 weight_a(100), weight_b(100), weight_g(0),
+    			 benevolence(0.9), safety(0.9), comfort(0.9),
+    			 punctuality(0.9), time_accuracy(0.9), cleanliness(0.9)
+    }
+
+    agent bus2 : bus.asl {
+    	join: auction_room, bus_calculator
+    	focus: auction_room.notice_board, bus_calculator.bid_calculator,
+    	bus_calculator.path_builder, auction_room.bids_collector,
+    	bus_calculator.shortest_path_searcher
+    	beliefs: point("C"), speed(50), capacity(15),
+    			 weight_a(100), weight_b(100), weight_g(0),
+    			 benevolence(0.9), safety(0.9), comfort(0.9),
+    			 punctuality(0.9), time_accuracy(0.9), cleanliness(0.9)
+    }
+
+    agent bus3 : bus.asl {
+    	join: auction_room, bus_calculator
+    	focus: auction_room.notice_board, bus_calculator.bid_calculator,
+    	bus_calculator.path_builder, auction_room.bids_collector,
+    	bus_calculator.shortest_path_searcher
+    	beliefs: point("D"), speed(55), capacity(15),
+    			 weight_a(100), weight_b(100), weight_g(0),
+    			 benevolence(0.9), safety(0.9), comfort(0.9),
+    			 punctuality(0.9), time_accuracy(0.9), cleanliness(0.9)
+    }
+
+    agent bus4 : bus.asl {
+    	join: auction_room, bus_calculator
+    	focus: auction_room.notice_board, bus_calculator.bid_calculator,
+    	bus_calculator.path_builder, auction_room.bids_collector,
+    	bus_calculator.shortest_path_searcher
+    	beliefs: point("I"), speed(50), capacity(15),
+    			 weight_a(100), weight_b(100), weight_g(0),
+    			 benevolence(0.9), safety(0.9), comfort(0.9),
+    			 punctuality(0.9), time_accuracy(0.9), cleanliness(0.9)
+    }
+
+    /*PASSENGERS*/
+
+    workspace auction_room {
+    	artifact auction_manager: tools_of_auctioneer.AuctionManager
+    	artifact notice_board: tools_of_auctioneer.NoticeBoard
+    	artifact bids_collector: tools_of_auctioneer.BidsCollector
+	}
+
+	workspace bus_calculator {
+    	artifact bid_calculator: tools_of_bus.BidCalculator
+    	artifact path_builder: tools_of_bus.PathBuilder
+    	artifact shortest_path_searcher: tools_of_bus.ShortestPathSearcher
+	}
+
+	organisation transport_company : org.xml {
+    	group mg : manager_group {
+    		responsible-for: ms
+    	}
+    	scheme ms : manager_scheme
+    }
+}
