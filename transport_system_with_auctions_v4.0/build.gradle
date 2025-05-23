@@ -49,13 +49,12 @@ sourceSets {
 // Добавляем задачу для генерации .jcm
 task generateJcm(type: Exec) {
     description = 'Генерация файла .jcm перед запуском'
-    group = 'build'
+    group       'JaCaMo'
 
     // рабочая директория (если нужно)
     workingDir = projectDir
-    print(projectDir)
 
-    commandLine 'python', 'generate_jcm.py', '--count', '200'
+    commandLine 'python', 'generate_jcm.py', '--count', '50'
 
     // если python установлен как python3 (Linux/Mac)
     // commandLine 'python3', 'generate_jcm.py'
@@ -63,7 +62,7 @@ task generateJcm(type: Exec) {
 }
 
 task run (type: JavaExec, dependsOn: 'classes') {
-    group       ' JaCaMo'
+    group       'JaCaMo'
     description 'runs the JaCaMo application'
     doFirst {
         mkdir 'log'
@@ -75,7 +74,7 @@ task run (type: JavaExec, dependsOn: 'classes') {
 
 
 task uberJar(type: Jar, dependsOn: 'classes') {
-    group      ' JaCaMo'
+    group      'JaCaMo'
     description 'creates a single runnable jar file with all dependencies'
 
     manifest {

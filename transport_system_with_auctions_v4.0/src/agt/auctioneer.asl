@@ -4,7 +4,7 @@
 
 number_of_auctions(0).
 number_of_requests(0).
-threshold(6).
+threshold(15).
 number_of_bus_participants(0).
 round_replies(0).
 threshold_auctions(3).
